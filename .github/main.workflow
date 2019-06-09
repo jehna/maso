@@ -33,5 +33,5 @@ action "Run linters" {
 action "Lighthouse" {
   uses = "./lighthouse-action/"
   needs = "Install Dependencies"
-  args = "https://thejunkland.com"
+  args = "--skip-audits=uses-http2 --only-categories=performance,accessibility,best-practices,seo" # localhost https is not working properly (which would be required for http2)
 }
