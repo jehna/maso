@@ -2,5 +2,11 @@
   "name": "masochist",
   "version": "1.0.0",
   "author": "Jesse Luoto",
-  "license": "MIT"
+  "scripts": {
+    "lint": "prettier -c src/* src/**/*"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
 }
