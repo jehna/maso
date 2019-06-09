@@ -105,7 +105,7 @@ Github Actions take some configurations that you can tweak if necessary.
 #### PORT
 
 Type: `Number`
-Default: `'5000'`
+Default: `5000`
 
 Your web server should always listen for port defined by environment vairable
 `PORT`. This can be changed by probiding an alternative port as `PORT`
