@@ -3,6 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 const PUBLIC_DIR = path.join(__dirname, '../public')
+const { PORT = 8000 } = process.env
 
 const parseUrl = request => {
   const { dir, base } = path.parse(request.url)
@@ -20,4 +21,5 @@ const server = http.createServer((request, response) => {
   }
 })
 
-server.listen(process.env.PORT || 8000)
+server.listen(PORT)
+console.log(`Listening on port ${PORT}`)

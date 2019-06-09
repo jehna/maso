@@ -1,6 +1,6 @@
 workflow "Masochist" {
   on = "pull_request"
-  resolves = ["Vulnerability Scan", "Scan package.json for updateable packages", "Run linters"]
+  resolves = ["Vulnerability Scan", "Scan package.json for updateable packages", "Run linters", "Lighthouse"]
 }
 
 action "Install Dependencies" {
@@ -28,4 +28,10 @@ action "Run linters" {
   uses = "actions/npm@v2.0.0"
   needs = "Install Dependencies"
   args = "run-script lint"
+}
+
+action "Lighthouse" {
+  uses = "./lighthouse-action/"
+  needs = "Install Dependencies"
+  args = "https://thejunkland.com"
 }
