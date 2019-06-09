@@ -3,7 +3,10 @@
         "es6": true,
         "node": true
     },
-    "extends": "standard",
+    "extends": [
+        "standard",
+        "plugin:jsx-a11y/strict"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -17,7 +20,8 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        "jsx-a11y"
     ],
     "rules": {
         "prettier/prettier": "error"
