@@ -1,6 +1,6 @@
-workflow "Scan PR for vulnerable dependencies" {
+workflow "Masochist" {
   on = "pull_request"
-  resolves = ["Vulnerability Scan"]
+  resolves = ["Vulnerability Scan", "Scan package.json for updateable packages"]
 }
 
 action "Install Dependencies" {
@@ -18,12 +18,7 @@ action "Vulnerability Scan" {
   secrets = ["GITHUB_TOKEN"]
 }
 
-workflow "Scan package.json for updateable packages" {
-  on = "pull_request"
-  resolves = ["Updateable packages"]
-}
-
-action "Updateable packages" {
+action "Scan package.json for updateable packages" {
   uses = "actions/npm@v2.0.0"
   needs = "Install Dependencies"
   args = "outdated"
