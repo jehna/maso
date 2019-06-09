@@ -1,5 +1,10 @@
 {
   "name": "maso",
+  "description": "Masochist website template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jehna/maso/"
+  },
   "version": "1.0.0",
   "author": "Jesse Luoto",
   "scripts": {
