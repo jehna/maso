@@ -75,8 +75,8 @@ those images. The computer says no.
 
 #### Example 2
 
-NPM reports a vulnerability in your web server's version and declines to approve
-any pull requests before the issue is fixed.
+NPM reports a vulnerability in your web server's version, so sadistic CI
+declines to approve any pull requests before the issue is fixed.
 
 Leverage this and raise a big, red blocker flag in the project tool of your
 choosing. Communicate clearly that the build system prevents any other changes
