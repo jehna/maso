@@ -2,5 +2,8 @@
   "name": "masochist",
   "version": "1.0.0",
   "author": "Jesse Luoto",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "iobroker.knx": "^1.0.20"
+  }
 }
