@@ -4,8 +4,19 @@
     <title>Sample web page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="This is a sample web page" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
     <p>Hello world!</p>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js').then(reg => {
+            console.log('Service worker registered.', reg)
+          })
+        })
+      }
+    </script>
   </body>
 </html>
