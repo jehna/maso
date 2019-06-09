@@ -70,7 +70,8 @@ site slow (surprise).
 
 Use this as a leverage: It's suddenly not just the developer's problem — you can
 bounce back that information and include both business and design to work out
-the best way to keep the site running fast and smooth.
+the best way to keep the site running fast and smooth. You just can't add all
+those images. The computer says no.
 
 #### Example 2
 
