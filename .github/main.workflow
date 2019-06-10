@@ -31,7 +31,7 @@ action "Run strict linters" {
 }
 
 action "Lighthouse 100/100" {
-  uses = "./lighthouse-action/"
+  uses = "./actions/lighthouse-action/"
   needs = "Install Dependencies"
   args = "--skip-audits=uses-http2 --only-categories=performance,accessibility,best-practices,seo" # localhost https is not working properly (which would be required for http2)
 }
