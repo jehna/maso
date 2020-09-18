@@ -1,0 +1,38 @@
+name: Sadistic
+on: pull_request
+jobs:
+  lint:
+    name: Run linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm ci
+      - run: npm run lint
+  lighthouse:
+    name: Lighthouse performance test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install, build
+        run: |
+          npm ci
+          npm run build --if-present
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.5.x
+          lhci collect
+          lhci upload
+          lhci assert --preset=lighthouse:no-pwa
+          lhci assert --budgetsFile=./performance-budget.json
+
+#
+# action "Lighthouse 100/100" {
+#   uses = "./lighthouse-action/"
+#   needs = "Install Dependencies"
+#   args = "--skip-audits=uses-http2 --only-categories=performance,accessibility,best-practices,seo" # localhost https is not working properly (which would be required for http2)
+# }
