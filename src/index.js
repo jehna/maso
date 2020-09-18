@@ -5,7 +5,7 @@ const path = require('path')
 const PUBLIC_DIR = path.join(__dirname, '../public')
 const { PORT = 8000 } = process.env
 
-const parseUrl = request => {
+const parseUrl = (request) => {
   const { dir, base } = path.parse(request.url)
   return path.join(dir, base || 'index.html')
 }
