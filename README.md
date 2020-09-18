@@ -1,4 +1,4 @@
-# Maso
+# Maso 👹
 
 > Masochist template for web development
 
