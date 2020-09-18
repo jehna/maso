@@ -35,13 +35,11 @@ makes sure that on all pull requests:
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) test gives
   100/100 points on all tests
 - Strict ESLint and Prettier rules are fully obliged to
+
+There's also dependabot configuration which ensures that:
+
 - NPM packages are always using latest versions of the packages
 - No vulnerable NPM packages are installed in the project
-
-Sometimes a new version of a package may appear during development, Lighthouse
-may get a new rule or a NPM package may have a vulnerabiilty. In this case it's
-the masochist developer's responsibility to update all packages and fix any
-other errors before merging any other code in.
 
 ### Motivation / Why would anyone use this?
 
@@ -75,13 +73,9 @@ those images. The computer says no.
 
 #### Example 2
 
-NPM reports a vulnerability in your web server's version, so sadistic CI
-declines to approve any pull requests before the issue is fixed.
-
-Leverage this and raise a big, red blocker flag in the project tool of your
-choosing. Communicate clearly that the build system prevents any other changes
-before a potential security fix has been applied. In best case you're seen as a
-professional that takes good security practices seriously.
+NPM reports a vulnerability in your web server's version, so Dependabot
+automatically creates a new pull request to fix the issue. Leverage this and
+treat Dependabot as a productive member of your team.
 
 ### To wrap up
 
@@ -111,17 +105,12 @@ Your web server should always listen for port defined by environment vairable
 `PORT`. This can be changed by probiding an alternative port as `PORT`
 environment variable to `Lighthouse` action.
 
-#### Lighthouse command line flags
-
-Type: `String`
-
-You can configure Lighthouse by giving extra [command line
-arguments](https://github.com/GoogleChrome/lighthouse#cli-options) via `args` value at `Lighthouse` action.
-
 ## Contributing
 
 This is an evolving project, and new feature requests and coding help is greatly
-appreciated. If you think you could make the saidstic CI workflow even more sadistic, just open an issue and describe how! Pull requests are also warmly welcome.
+appreciated. If you think you could make the saidstic CI workflow even more
+sadistic, just open an issue and describe how! Pull requests are also warmly
+welcome.
 
 ## Licensing
 
