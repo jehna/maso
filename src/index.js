@@ -13,7 +13,7 @@ const parseUrl = (request) => {
 const server = http.createServer((request, response) => {
   const targetFilePath = path.join(PUBLIC_DIR, parseUrl(request))
   if (fs.existsSync(targetFilePath)) {
-    response.writeHead(200)
+    response.writeHead(200, undefined, { 'X-Content-Type-Options': 'nosniff' })
     fs.createReadStream(targetFilePath).pipe(response)
   } else {
     response.writeHead(404)
