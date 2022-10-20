@@ -1,0 +1,27 @@
+name: Zap full scan on push to master
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Zap full scan
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install, build
+        run: |
+          npm ci
+          npm run build --if-present
+          npm start &
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: "owasp/zap2docker-stable"
+          target: "http://localhost:8000/"
